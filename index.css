@@ -1,0 +1,55 @@
+body {
+    background-color: rgba(94, 197, 128, 0.616);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+
+ input{
+    background: none;
+    width: auto;
+    height: 25px;
+    text-align: center;
+    border: 2px solid azure;
+    border-radius: 24px;
+ }
+
+ button {
+    background: rgba(19, 19, 20, 0.933);
+    color: azure;
+    height: 45px;
+    font-size: 18px;
+    padding: 12px 18px 12px 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 24px;
+ }
+
+
+
+ #gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 64px;
+  padding: 10px;
+}
+
+.gridSquare {
+  background-color: none;
+  width: 300px;
+  height: 25px;
+  border: 1px solid azure;
+  color: rgb(52, 154, 212);
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  cursor: grab;
+}
+
+  
