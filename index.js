@@ -100,34 +100,6 @@ const customAlert = (message) => {
   document.body.appendChild(alertWrapper);
 };
 
-const switchPositions = (targetIndex, draggedIndex) => {
-  const squares = Array.from(gridContainer.children);
-  let targetSquare = squares.find((square) => square.getAttribute("data-index") === targetIndex.toString());
-  let draggedSquare = squares.find((square) => square.getAttribute("data-index") === draggedIndex.toString());
-
-  let targetHTML = targetSquare.innerHTML;
-  let draggedHTML = draggedSquare.innerHTML;
-
-  targetSquare.innerHTML = draggedHTML;
-  targetSquare.setAttribute("data-index", draggedIndex);
-
-  draggedSquare.innerHTML = targetHTML;
-  draggedSquare.setAttribute("data-index", targetIndex);
-};
-
-gridContainer.addEventListener("drop", (e) => {
-  e.preventDefault();
-  const targetIndex = parseInt(e.target.getAttribute("data-index"));
-  const draggedIndex = parseInt(e.dataTransfer.getData("text/index"));
-
-  switchPositions(targetIndex, draggedIndex);
-  switchPositions(targetIndex - 1, draggedIndex - 1);
-  switchPositions(targetIndex + 1, draggedIndex + 1);
-  switchPositions(targetIndex - gridSize.value, draggedIndex - gridSize.value);
-  switchPositions(targetIndex + gridSize.value, draggedIndex + gridSize.value);
-
-  checkOrder();
-});
 
 
 const checkOrder = () => {
