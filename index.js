@@ -11,6 +11,9 @@ createBtn.addEventListener("click", () => {
 
 const createGrid = (size) => {
   gridContainer.innerHTML = "";
+  gridContainer.style.display = "grid";
+  gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
   const squares = [];
   for (let i = 0; i < size * size; i++) {
@@ -88,7 +91,6 @@ const customAlert = (message) => {
   closeBtn.style.cursor = "pointer";
   closeBtn.addEventListener("click", () => {
     document.body.removeChild(alertWrapper);
-    input.push(gridContainer.value)
     gridContainer.innerHTML = "";
   });
 
@@ -97,6 +99,36 @@ const customAlert = (message) => {
   alertWrapper.appendChild(alertBox);
   document.body.appendChild(alertWrapper);
 };
+
+const switchPositions = (targetIndex, draggedIndex) => {
+  const squares = Array.from(gridContainer.children);
+  let targetSquare = squares.find((square) => square.getAttribute("data-index") === targetIndex.toString());
+  let draggedSquare = squares.find((square) => square.getAttribute("data-index") === draggedIndex.toString());
+
+  let targetHTML = targetSquare.innerHTML;
+  let draggedHTML = draggedSquare.innerHTML;
+
+  targetSquare.innerHTML = draggedHTML;
+  targetSquare.setAttribute("data-index", draggedIndex);
+
+  draggedSquare.innerHTML = targetHTML;
+  draggedSquare.setAttribute("data-index", targetIndex);
+};
+
+gridContainer.addEventListener("drop", (e) => {
+  e.preventDefault();
+  const targetIndex = parseInt(e.target.getAttribute("data-index"));
+  const draggedIndex = parseInt(e.dataTransfer.getData("text/index"));
+
+  switchPositions(targetIndex, draggedIndex);
+  switchPositions(targetIndex - 1, draggedIndex - 1);
+  switchPositions(targetIndex + 1, draggedIndex + 1);
+  switchPositions(targetIndex - gridSize.value, draggedIndex - gridSize.value);
+  switchPositions(targetIndex + gridSize.value, draggedIndex + gridSize.value);
+
+  checkOrder();
+});
+
 
 const checkOrder = () => {
   const squares = Array.from(gridContainer.children);
