@@ -88,9 +88,6 @@ const customAlert = (message) => {
   closeBtn.style.cursor = "pointer";
   closeBtn.addEventListener("click", () => {
     document.body.removeChild(alertWrapper);
-    input.push(gridContainer.value)
-  console.log(input)
-  gridContainer.innerHTML = "";
   });
 
   alertBox.appendChild(messageText);
