@@ -91,6 +91,7 @@ const customAlert = (message) => {
   closeBtn.style.cursor = "pointer";
   closeBtn.addEventListener("click", () => {
     document.body.removeChild(alertWrapper);
+    input.push(gridContainer.value)
     gridContainer.innerHTML = "";
   });
 
@@ -99,8 +100,6 @@ const customAlert = (message) => {
   alertWrapper.appendChild(alertBox);
   document.body.appendChild(alertWrapper);
 };
-
-
 
 const checkOrder = () => {
   const squares = Array.from(gridContainer.children);

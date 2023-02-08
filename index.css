@@ -48,7 +48,7 @@ img {
 
  #gridContainer {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-rows: repeat(3, 1fr);
   grid-gap: 64px;
   padding-bottom: 30px;
 }
@@ -66,9 +66,5 @@ img {
   cursor: grab;
 }
 
-.gridSquare:active{
-   width: auto;
-   border: 1px solid #0cff84;
-}
 
   
