@@ -89,7 +89,8 @@ const customAlert = (message) => {
   closeBtn.addEventListener("click", () => {
     document.body.removeChild(alertWrapper);
     input.push(gridContainer.value)
-    console.log(input)
+  console.log(input)
+  gridContainer.innerHTML = "";
   });
 
   alertBox.appendChild(messageText);
