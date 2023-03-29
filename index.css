@@ -5,9 +5,9 @@ body {
 
 .bg {
    background-color: #6386b8;
-   width: 650px;
-   height: 600px;
-   margin: 30px auto 0 auto;
+   width: 1640px;
+   height: auto;
+   margin: 30px auto 30px auto;
    border-radius: 12px;
 }
 
@@ -48,28 +48,23 @@ img {
 
  #gridContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-gap: 64px;
-  padding: 10px;
+  padding-bottom: 30px;
 }
 
 .gridSquare {
   background-color: #1a2330;
-  width: 120px;
-  height: 18px;
-  /* border: 2px solid #95a6be; */
+  width: auto;
+  height: 20px;
   border-radius: 12px;
   box-shadow: 1px 1px 3px #94A3B8;
-  padding: 20px;
+  padding: 16px 40px 16px 40px;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   cursor: grab;
 }
 
-.gridSquare:active{
-   width: 119px;
-   border: 1px solid #0cff84;
-}
 
   

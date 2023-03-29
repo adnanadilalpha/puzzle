@@ -11,6 +11,9 @@ createBtn.addEventListener("click", () => {
 
 const createGrid = (size) => {
   gridContainer.innerHTML = "";
+  gridContainer.style.display = "grid";
+  gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
   const squares = [];
   for (let i = 0; i < size * size; i++) {
@@ -87,8 +90,7 @@ const customAlert = (message) => {
   closeBtn.style.cursor = "pointer";
   closeBtn.addEventListener("click", () => {
     document.body.removeChild(alertWrapper);
-    input.push(gridContainer.value)
-    console.log(input)
+    gridContainer.innerHTML = "";
   });
 
   alertBox.appendChild(messageText);
