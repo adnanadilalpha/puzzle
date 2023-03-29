@@ -1,12 +1,12 @@
 const createBtn = document.querySelector("#createBtn");
 const gridSize = document.querySelector("#gridSize");
 const gridContainer = document.querySelector("#gridContainer");
-let input = []
+let input = [];
 
 createBtn.addEventListener("click", () => {
   createGrid(gridSize.value);
   input.push(gridSize.value)
-  gridSize.value = ""
+  gridSize.value = "";
 });
 
 const createGrid = (size) => {
@@ -33,21 +33,20 @@ const createGrid = (size) => {
   });
 
   gridContainer.addEventListener("drop", (e) => {
-    e.preventDefault();
-    const targetIndex = e.target.getAttribute("data-index");
     const draggedIndex = e.dataTransfer.getData("text/index");
     const targetHTML = e.target.innerHTML;
     const draggedHTML = e.dataTransfer.getData("text/plain");
-
+  
     e.target.innerHTML = draggedHTML;
     e.target.setAttribute("data-index", draggedIndex);
-
+  
     const square = gridContainer.querySelector(`[data-index="${draggedIndex}"]`);
     square.innerHTML = targetHTML;
     square.setAttribute("data-index", targetIndex);
-
+  
     checkOrder();
   });
+  
 
   gridContainer.addEventListener("dragover", (e) => {
     e.preventDefault();
